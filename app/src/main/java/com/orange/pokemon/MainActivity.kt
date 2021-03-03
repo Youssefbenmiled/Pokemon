@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
 
             override fun onFailure(call: Call<List<Pokemon>>, t: Throwable) {
                 load_db_Data()
-                Log.e(TAG, "onFailure : ", t)
+                Log.e(TAG, "onFailure: ", t)
                 Toast.makeText(this@MainActivity, "Error", Toast.LENGTH_LONG).show()
 
             }
