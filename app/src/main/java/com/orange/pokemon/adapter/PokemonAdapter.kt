@@ -12,24 +12,24 @@ import com.orange.pokemon.data.PokemonEntity
 import com.orange.pokemon.databinding.ItemPokemonLayoutBinding
 
 class pokemonAdapter :
-    ListAdapter<PokemonEntity, pokemonAdapter.TransactionViewholder>(TransactionDiffUtils()) {
+    ListAdapter<PokemonEntity, pokemonAdapter.PokemonViewholder>(PokemonDiffUtils()) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TransactionViewholder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonViewholder {
         val binding = ItemPokemonLayoutBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
         )
-        return TransactionViewholder(binding)
+        return PokemonViewholder(binding)
     }
 
 
-    override fun onBindViewHolder(holder: TransactionViewholder, position: Int) {
+    override fun onBindViewHolder(holder: PokemonViewholder, position: Int) {
         val item = getItem(position)
         holder.bind(item)
     }
 
-    inner class TransactionViewholder(val binding: ItemPokemonLayoutBinding) :
+    inner class PokemonViewholder(val binding: ItemPokemonLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(PokemonEntity: PokemonEntity) {
@@ -54,7 +54,7 @@ class pokemonAdapter :
     }
 }
 
-class TransactionDiffUtils : DiffUtil.ItemCallback<PokemonEntity>() {
+class PokemonDiffUtils : DiffUtil.ItemCallback<PokemonEntity>() {
 
     override fun areItemsTheSame(
         oldItem: PokemonEntity,
